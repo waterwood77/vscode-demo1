@@ -1,4 +1,5 @@
 a=0 #从1-100跳7的数字
+b=333
 while a<100:
     a+=1
     if a%7==0:#7的倍数
@@ -9,4 +10,5 @@ while a<100:
         pass
     else:
         print(a)
+        print(b)
         
