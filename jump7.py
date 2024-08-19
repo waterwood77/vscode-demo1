@@ -12,3 +12,5 @@ while a<100:
         print(a)
    
         
+
+print(1+1)
