@@ -1,3 +1,5 @@
+
+
 a=0 #从1-100跳7的数字
 
 while a<100:
@@ -149,7 +151,7 @@ li[-1]
 """
 
 # 越界存取会造成IndexError
-li[4]  # 抛出IndexErro,因为li只有0，1，2，3
+#li[4]  # 抛出IndexErro,因为li只有0，1，2，3
 
 #列表有切割语法,li[1,2,4,3]
 li[1:3] #=[2,4]
@@ -180,4 +182,89 @@ li.extend(other_li)   #li现在是[1,2,3,4,5,6]
 #用len取列表长度,li=[1,2,3,4,5,6]
 len(li)  #=6
 
-#
+#元组是不可改变的序列
+tup = (1,2,3)
+tup[0]  # =1
+#tup[0]=3   #抛出TpyeError
+
+#列表允许的操作元组大都可以
+len(tup)    # =3
+tup + (4,5,6)   # (1,2,3,4,5,6)
+tup[:2]  #(1,2)
+2 in tup #True 
+
+#可以把元组合列表解包，赋值给变量
+a,b,c =(1,2,3)   #现在a是1，b是2，c是3
+#元组周围的括号是可以省略的
+d, e, f =4,5,6
+#交换两个变量的值就这么简单
+e, d = d, e   # 现在d是5，e是4
+
+#用字典表达映射关系
+empty_dict = {}
+#初始化字典
+filled_dict = {"one": 1,"two":2,"three":3}
+#用[]取值
+filled_dict["one"]  #=1
+
+# 用 keys 获得所有的键。
+# 因为 keys 返回一个可迭代对象，所以在这里把结果包在 list 里。我们下面会详细介绍可迭代。
+# 注意：字典键的顺序是不定的，你得到的结果可能和以下不同。
+list(filled_dict.keys())   #  ["three","two","one"]
+
+#用value获得所有的值。跟keys一样，要用list包起来，顺序也可能不同
+list(filled_dict.values())   #[3,2,1]
+
+#用in测试一个字典是否包含一个键
+"one" in filled_dict   #True 
+1 in filled_dict   #False
+
+#访问不存在的键会导致keyError
+#filled_dict["four"]
+
+# 用get来避免KeyError
+filled_dict.get("one")   #=1
+filled_dict.get("four")  #None
+# 当键不存在的时候get方法可以返回默认值
+filled_dict.get("one",4)   #=1
+filled_dict.get("four",4)  #=4
+
+# setdefault方法只有当键不存在的时候插入新值
+filled_dict.setdefault("five",5)  #filled_dict["five"]设为5
+filled_dict.setdefault("five",6)  #filled_dict["five"]还是5
+
+#字典赋值
+filled_dict.update({"four":4})   #{"one": 1, "two": 2, "three": 3, "four": 4}
+filled_dict["four"] = 4  #另一种赋值方法
+
+#用del删除
+del filled_dict["one"] ## 从filled_dict中把one删除
+
+
+#用set表达集合
+empty_set =set()
+#初始化一个集合，语法跟字典相似
+some_set = {1,1,2,2,3,4}     # some_set现在是{1, 2, 3, 4}
+
+#可以把集合的值赋值给变量
+filled_set = some_set
+#为集合添加元素
+filled_set.add (5)    # filled_set现在是{1, 2, 3, 4, 5}
+
+# & 取交集
+other_set = {3,4,5,6}
+filled_set & other_set    # {3,4,5}
+
+# | 取并集
+filled_set | other_set   # => {1, 2, 3, 4, 5, 6}
+
+# - 取补集
+{1,2,3,4} - {2,3,5} #  {1,4}
+
+#in 测试集合是否包含元素
+2 in filled_set   #True
+10 in filled_set  #False
+
+
+
+
